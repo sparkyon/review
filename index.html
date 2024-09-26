@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Review</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .review-section {
+            margin-bottom: 15px;
+        }
+        .review-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .review-section input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .average-score {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Movie Review</h1>
+    <div class="container">
+        <div class="review-section">
+            <label for="plot">Plot (Story Arc and Plausibility):</label>
+            <input type="number" id="plot" min="1" max="10" placeholder="Rate between 1 and 10">
+        </div>
+        
+        <div class="review-section">
+            <label for="attraction">Attraction (Premise & Entertainment Value):</label>
+            <input type="number" id="attraction" min="1" max="10" placeholder="Rate between 1 and 10">
+        </div>
+        
+        <div class="review-section">
+            <label for="theme">Theme (Identity & Depth):</label>
+            <input type="number" id="theme" min="1" max="10" placeholder="Rate between 1 and 10">
+        </div>
+
+        <div class="review-section">
+            <label for="acting">Acting (Characters & Performance):</label>
+            <input type="number" id="acting" min="1" max="10" placeholder="Rate between 1 and 10">
+        </div>
+
+        <div class="review-section">
+            <label for="dialogue">Dialogue (Storytelling & Context):</label>
+            <input type="number" id="dialogue" min="1" max="10" placeholder="Rate between 1 and 10">
+        </div>
+
+        <div class="review-section">
+            <label for="cinematography">Cinematography (Visual Language & Lighting, Setting, and Wardrobe):</label>
+            <input type="number" id="cinematography" min="1" max="10" placeholder="Rate between 1 and 10">
+        </div>
+
+        <div class="review-section">
+            <label for="editing">Editing (Pace & Effects):</label>
+            <input type="number" id="editing" min="1" max="10" placeholder="Rate between 1 and 10">
+        </div>
+
+        <div class="review-section">
+            <label for="soundtrack">Soundtrack (Sound Design & Film Score):</label>
+            <input type="number" id="soundtrack" min="1" max="10" placeholder="Rate between 1 and 10">
+        </div>
+
+        <div class="review-section">
+            <label for="directing">Directing (Vision & Execution):</label>
+            <input type="number" id="directing" min="1" max="10" placeholder="Rate between 1 and 10">
+        </div>
+
+        <div class="review-section">
+            <label for="itFactor">The “It” Factor (One-of-a-Kind & Transcendent):</label>
+            <input type="number" id="itFactor" min="1" max="10" placeholder="Rate between 1 and 10">
+        </div>
+
+        <button onclick="calculateAverage()">Calculate Average Score</button>
+        <div class="average-score" id="averageScore"></div>
+    </div>
+
+    <script>
+        function calculateAverage() {
+            const plot = parseFloat(document.getElementById('plot').value) || 0;
+            const attraction = parseFloat(document.getElementById('attraction').value) || 0;
+            const theme = parseFloat(document.getElementById('theme').value) || 0;
+            const acting = parseFloat(document.getElementById('acting').value) || 0;
+            const dialogue = parseFloat(document.getElementById('dialogue').value) || 0;
+            const cinematography = parseFloat(document.getElementById('cinematography').value) || 0;
+            const editing = parseFloat(document.getElementById('editing').value) || 0;
+            const soundtrack = parseFloat(document.getElementById('soundtrack').value) || 0;
+            const directing = parseFloat(document.getElementById('directing').value) || 0;
+            const itFactor = parseFloat(document.getElementById('itFactor').value) || 0;
+
+            const total = plot + attraction + theme + acting + dialogue + cinematography + editing + soundtrack + directing + itFactor;
+            const average = total / 10;
+
+            document.getElementById('averageScore').innerText = `Average Score: ${average.toFixed(2)} / 10, ${average.toFixed(2)/2} / 5`;
+        }
+    </script>
+
+</body>
+</html>
